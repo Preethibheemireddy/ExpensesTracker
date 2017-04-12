@@ -18,22 +18,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
        // Override point for customization after application launch.
-      //  let isuserloggedin = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+       // let isuserloggedin = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
        
+       /*if (isuserloggedin == true) {
+            
             let rootViewController = self.window!.rootViewController
             let mainstoryboard: UIStoryboard = UIStoryboard (name: "Main", bundle: nil)
-            let centerViewController = mainstoryboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+            let centerViewController = mainstoryboard.instantiateViewController(withIdentifier: "HomeTableViewController")  as! HomeTableViewController
             let leftViewController = mainstoryboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
             let leftsideNav = UINavigationController(rootViewController: leftViewController)
             let centerNav = UINavigationController(rootViewController: centerViewController)
             
             centerContainer = MMDrawerController(center: centerNav, leftDrawerViewController: leftsideNav)
-            //centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView;
-            //centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView;
+            centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView;
+            centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView;
             window!.rootViewController = centerContainer
             window!.makeKeyAndVisible()
 
-       
+        }*/
         
 
         return true

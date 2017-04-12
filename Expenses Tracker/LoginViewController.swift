@@ -35,14 +35,14 @@ class LoginViewController: UIViewController {
                 userloggedin.userEmail = self.login.text
                 
                 self.performSegue(withIdentifier: "Loggedin", sender: self)
-                let Aboutview = self.storyboard?.instantiateViewController(withIdentifier: "HomeTableViewController") as! HomeTableViewController
+                /*let Aboutview = self.storyboard?.instantiateViewController(withIdentifier: "HomeTableViewController") as! HomeTableViewController
                 let AboutNav = UINavigationController(rootViewController: Aboutview)
                 let mainstoryboard: UIStoryboard = UIStoryboard (name: "Main", bundle: nil)
                 let leftViewController = mainstoryboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
                 let leftsideNav = UINavigationController(rootViewController: leftViewController)
                 appdelegate.centerContainer!.centerViewController = AboutNav
-                appdelegate.centerContainer?.leftDrawerViewController = leftsideNav
-                //slidemenu()
+                appdelegate.centerContainer?.leftDrawerViewController = leftsideNav*/
+                slidemenu()
                 
                 
             }
@@ -87,4 +87,27 @@ class LoginViewController: UIViewController {
         
         return LoginSuccess
 }
+    func slidemenu() {
+        let rootViewController = appdelegate.window!.rootViewController
+        let mainstoryboard: UIStoryboard = UIStoryboard (name: "Main", bundle: nil)
+        let centerViewController = mainstoryboard.instantiateViewController(withIdentifier: "HomeTableViewController") as! HomeTableViewController
+        let leftViewController = mainstoryboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
+        let leftsideNav = UINavigationController(rootViewController: leftViewController)
+        let centerNav = UINavigationController(rootViewController: centerViewController)
+        
+        let centerContainer: MMDrawerController = MMDrawerController(center: centerNav, leftDrawerViewController: leftsideNav)
+        // centerContainer.centerViewController = centerNav
+        //   centerContainer.leftDrawerViewController = leftsideNav
+        centerContainer.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView;
+        centerContainer.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView;
+        
+        UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+        UserDefaults.standard.synchronize()
+        appdelegate.centerContainer = centerContainer
+        appdelegate.window!.rootViewController = centerContainer
+        appdelegate.window!.makeKeyAndVisible()
+        
+        
+    }
+
 }

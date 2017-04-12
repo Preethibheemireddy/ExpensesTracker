@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Kmh-fa-Zq1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3an-gV-P2m">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -240,7 +240,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="Logout:" destination="ufU-l5-nKc" eventType="touchUpInside" id="1xo-7K-7PR"/>
-                                                        <segue destination="Kmh-fa-Zq1" kind="show" identifier="logout" id="6Ys-20-dZu"/>
+                                                        <segue destination="3an-gV-P2m" kind="show" identifier="logout" id="6Ys-20-dZu"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -329,7 +329,7 @@
                     <connections>
                         <outlet property="Tableview" destination="tr1-Vz-He6" id="Uc8-0u-3Dq"/>
                         <segue destination="Ydt-39-hn8" kind="show" identifier="Expenses" id="DCd-rG-YFu"/>
-                        <segue destination="Kmh-fa-Zq1" kind="show" identifier="Logout" id="h8z-Lf-OiX"/>
+                        <segue destination="3an-gV-P2m" kind="show" identifier="Logout" id="h8z-Lf-OiX"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkP-WX-Aka" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -390,7 +390,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="h2l-le-MfH">
-                        <barButtonItem key="leftBarButtonItem" title="Home" style="done" id="CZb-Rt-080">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Back" style="done" id="CZb-Rt-080">
                             <color key="tintColor" red="0.080548224099999996" green="0.38722062239999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="Home:" destination="6FK-Dm-53K" id="Uzj-hw-xow"/>
@@ -445,7 +445,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expenses Tracker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZf-lk-JRv">
-                                <rect key="frame" x="66" y="49" width="243" height="38"/>
+                                <rect key="frame" x="66" y="93" width="243" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="8i9-vC-UZP"/>
                                 </constraints>
@@ -489,13 +489,14 @@
                             <constraint firstItem="6wS-I5-ijJ" firstAttribute="top" secondItem="H7M-GW-6I1" secondAttribute="bottom" constant="186" id="yPS-cW-cx2"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hlb-KC-YNT"/>
                     <connections>
                         <outlet property="backgroundimage" destination="NEK-H3-TZe" id="AHj-gT-gxQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JP5-j5-Vqo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184.8000000000002" y="280.20989505247377"/>
+            <point key="canvasLocation" x="3111.1999999999998" y="443.92803598200902"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="YVM-dJ-QHF">
@@ -603,7 +604,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nug-1O-iJo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2446" y="1000"/>
+            <point key="canvasLocation" x="3583.1999999999998" y="1070.9145427286358"/>
         </scene>
         <!--Expenses View Controller-->
         <scene sceneID="XSH-PA-Vjr">
@@ -757,7 +758,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JJU-oA-r65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1508" y="501"/>
+            <point key="canvasLocation" x="1132" y="477"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="GTj-O6-KgY">
@@ -931,18 +932,36 @@
             </objects>
             <point key="canvasLocation" x="1662" y="1165"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aiC-R4-eCo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3an-gV-P2m" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DhZ-4W-mQU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Kmh-fa-Zq1" kind="relationship" relationship="rootViewController" id="8il-F2-WPm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I8E-OD-fGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2172" y="443.92803598200902"/>
+        </scene>
     </scenes>
     <resources>
         <image name="expense.jpg" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="h8z-Lf-OiX"/>
-        <segue reference="FiD-u2-QRt"/>
-        <segue reference="OIf-oj-HrU"/>
-        <segue reference="T9B-Sf-kul"/>
-        <segue reference="gi2-pp-nXE"/>
-        <segue reference="nYV-q5-3cS"/>
         <segue reference="OcF-V9-yNr"/>
         <segue reference="6mG-VG-bPu"/>
+        <segue reference="T9B-Sf-kul"/>
+        <segue reference="13n-4W-BVN"/>
+        <segue reference="D9A-V4-oOs"/>
+        <segue reference="h8z-Lf-OiX"/>
+        <segue reference="c3C-0f-mS7"/>
+        <segue reference="gi2-pp-nXE"/>
     </inferredMetricsTieBreakers>
 </document>

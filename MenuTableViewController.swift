@@ -47,15 +47,15 @@ class MenuTableViewController: UITableViewController {
     }
 
     @IBAction func Logout(_ sender: UIButton) {
-       // UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
-       // UserDefaults.standard.synchronize()
+        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+        UserDefaults.standard.synchronize()
+        
         let centerview = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         let appdelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-
+        
         let centerNav = UINavigationController(rootViewController: centerview)
-                appdelegate.centerContainer!.centerViewController = centerNav
-        appdelegate.centerContainer?.closeDrawer(animated: true, completion: nil)
-       // appdelegate.window?.rootViewController = centerview
+        
+        appdelegate.window?.rootViewController = centerNav
     }
     
     // MARK: - Table view data source
