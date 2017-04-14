@@ -13,7 +13,9 @@ import CoreData
 class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     var Expensedata: Expenses? = nil
     var data: [String] = ["Groceries", "Shopping", "Restaurants"]
-    var selectedDate:Date = Date()
+    var numberFormatter = NumberFormatter()
+    var isConversionSuccessful: Bool = false
+    var isEdited = false
     
     @IBOutlet weak var Description: UILabel!
     @IBOutlet weak var Amount: UILabel!
@@ -37,7 +39,6 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
             categoryText.text = Expensedata?.category
             amountText.text = String(describing: Expensedata!.amount)
             dateDisplay.formatDate()
-            //selectedDate = dateDisplay.dateFormatter.date(from: <#T##String#>)
             MonthText.text = dateDisplay.dateFormatter.string(from: Expensedata?.date! as! Date)
             descriptionText.text = Expensedata?.details
         }
@@ -62,26 +63,62 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
     }
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "saveexpense", sender: self)
+        if (isEdited == true ) {
+            
+            self.performSegue(withIdentifier: "expenseedited", sender: self)
+        }
+        else{
+            self.performSegue(withIdentifier: "saveexpense", sender: self)
+        }
+        
     }
     
     @IBAction func Save(_ sender: Any) {
         
         if(Expensedata != nil) {
             //update core data
-            Expensedata?.category = categoryText.text!
-            Expensedata?.amount = Double(amountText.text!)!
-            dateDisplay.formatDate()
+            if (categoryText.text != "" && MonthText.text != "" && amountText.text != "" && descriptionText.text != "") {
+                checkUserInput()
+                if (isConversionSuccessful == true) {
+                   
+                    Expensedata?.category = categoryText.text!
+                    Expensedata?.amount = Double(amountText.text!)!
+                    dateDisplay.formatDate()
+                    
+                    Expensedata?.date = dateDisplay.dateFormatter.date(from: MonthText.text!)! as NSDate
+                    
+                    Expensedata?.details = descriptionText.text
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    self.performSegue(withIdentifier: "expenseedited", sender: self)
+                }
+                else{
+                    alertDisplay.displayalert(usermessage: "Invalid data", view: self)
+                    
+                    return
+                }
+
+            }
+            else{
+                alertDisplay.displayalert(usermessage: "All fields are required", view: self)
+                
+                return
+            }
             
-            Expensedata?.date = dateDisplay.dateFormatter.date(from: MonthText.text!)! as NSDate
-            //selectedDate as NSDate
-            Expensedata?.details = descriptionText.text
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            self.performSegue(withIdentifier: "expenseedited", sender: self)
         }
             
         else if (categoryText.text != "" && MonthText.text != "" && amountText.text != "" && descriptionText.text != "") {
-            saveexpense()
+            checkUserInput()
+            
+            if (isConversionSuccessful == true) {
+                saveexpense()
+                
+            }
+            else{
+                alertDisplay.displayalert(usermessage: "Invalid data", view: self)
+                
+                return
+            }
+            
             self.performSegue(withIdentifier: "saveexpense", sender: self)
             
         }
@@ -110,7 +147,7 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         dateDisplay.formatDate()
         MonthText.text = dateDisplay.dateFormatter.string(from: sender.date)
-        selectedDate = dateDisplay.dateFormatter.date(from: MonthText.text!)!
+        
         
         
     }
@@ -121,11 +158,11 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return data.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        //let data = result[row] as! Category
+       
         return data[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // let data = result[row] as! Category
+        
         categoryText.text = data[row]
     }
     
@@ -146,8 +183,6 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
                     Expense.category = categoryText.text
                     Expense.amount = Double(amountText.text!)!
                     Expense.date = dateDisplay.dateFormatter.date(from: MonthText.text!) as NSDate?
-                    //selectedDate as NSDate?
-                    print(Expense.date!)
                     Expense.details = descriptionText.text
                     
                     Expense.register?.email = object.email
@@ -167,6 +202,26 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
             
         }
         
+    }
+    //To check if user entered amount and date is valid or not
+    
+    func checkUserInput() {
+        
+        if let userInput = numberFormatter.number(from: amountText.text!)?.doubleValue {
+            
+            if let userDate = dateDisplay.dateFormatter.date(from: MonthText.text!) as NSDate? {
+                isConversionSuccessful = true
+                
+            }
+            else{
+                isConversionSuccessful = false
+            }
+            
+            
+        } else{
+            
+            isConversionSuccessful = false
+        }
     }
     
     

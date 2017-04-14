@@ -30,7 +30,10 @@ class ExpensesTableViewController: UITableViewController {
     }
     
     @IBAction func Home(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "Home", sender: self)
+        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
+        //self.performSegue(withIdentifier: "Home", sender: self)
     }
     
     
@@ -133,7 +136,7 @@ class ExpensesTableViewController: UITableViewController {
             let item: ExpensesViewController  = segue.destination as! ExpensesViewController
             let newtask: Expenses = expense[indexpath.row]
             item.Expensedata = newtask
-            
+            item.isEdited = true
         }
         
         // Get the new view controller using segue.destinationViewController.
