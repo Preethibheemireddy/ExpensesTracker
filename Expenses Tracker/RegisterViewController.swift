@@ -21,6 +21,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var Firstname: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         
         // Do any additional setup after loading the view.
     }
@@ -30,7 +32,10 @@ class RegisterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
     @IBAction func Alreadyhavaaccount(_ sender: UIButton) {
     }
@@ -48,7 +53,6 @@ class RegisterViewController: UIViewController {
                 
                 do {
                     let result = try databaseModel.context.fetch(databaseModel.fetchRegister)
-                    print(result.count)
                     if (result.count > 0) {
                         alertDisplay.displayalert(usermessage: "User with this Email Id already exists", view: self)
                         

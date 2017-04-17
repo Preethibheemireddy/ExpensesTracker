@@ -14,13 +14,15 @@ class ExpensesTableViewController: UITableViewController {
     var expense: [Expenses] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        Tableview.estimatedRowHeight = 44.0;
+        Tableview.rowHeight = UITableViewAutomaticDimension
         navigation.title = userloggedin.userSelectedDate!
-        self.Tableview.rowHeight = UITableViewAutomaticDimension
         checkExpenses()
         Tableview.reloadData()
         
     }
-   
+    
+
     @IBOutlet weak var navigation: UINavigationItem!
     
     
@@ -30,10 +32,8 @@ class ExpensesTableViewController: UITableViewController {
     }
     
     @IBAction func Home(_ sender: UIBarButtonItem) {
-        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
-        //self.performSegue(withIdentifier: "Home", sender: self)
+      
+        self.performSegue(withIdentifier: "Home", sender: self)
     }
     
     
@@ -45,7 +45,6 @@ class ExpensesTableViewController: UITableViewController {
         databaseModel.fetchExpenses.sortDescriptors = [sort]
         do {
             let result = try databaseModel.context.fetch(databaseModel.fetchExpenses)
-            print(result.count)
             if (result.count > 0) {
                 for object in result {
                     dateDisplay.formatDate()
@@ -97,6 +96,10 @@ class ExpensesTableViewController: UITableViewController {
         cell.dateLabel.text = mydate
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
     
     

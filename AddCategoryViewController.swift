@@ -17,6 +17,9 @@ class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddCategoryViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         self.navigationController?.setToolbarHidden(false, animated: true)
         
         
@@ -31,6 +34,11 @@ class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDel
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBOutlet weak var categoryText: UITextField!
@@ -112,7 +120,6 @@ class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDel
         databaseModel.fetchRegister.sortDescriptors = [sort]
         do {
             categorymodel.result = try databaseModel.context.fetch(databaseModel.fetchRegister)
-            print(categorymodel.result.count)
             if (categorymodel.result.count > 0) {
                 for object in categorymodel.result {
                     categorymodel.categoryobject = ((object.category?.allObjects)! as! [Category])

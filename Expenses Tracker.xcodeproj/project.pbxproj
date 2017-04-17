@@ -331,6 +331,7 @@
 				TargetAttributes = {
 					02B4DFDD1E70978100BAFC73 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = LVF334A3QG;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
@@ -583,6 +584,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = LVF334A3QG;
 				INFOPLIST_FILE = "Expenses Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Preethi-Bheemireddy.Expenses-Tracker";
@@ -599,6 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = LVF334A3QG;
 				INFOPLIST_FILE = "Expenses Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Preethi-Bheemireddy.Expenses-Tracker";

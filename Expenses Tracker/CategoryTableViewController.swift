@@ -17,6 +17,9 @@ class CategoryTableViewController: UITableViewController   {
     @IBOutlet weak var Tableview: UITableView!
     override func viewDidLoad() {
         
+        Tableview.estimatedRowHeight = 44.0;
+        Tableview.rowHeight = UITableViewAutomaticDimension
+        
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.setToolbarHidden(false, animated: true)

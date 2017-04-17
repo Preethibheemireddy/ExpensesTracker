@@ -48,6 +48,7 @@ class MenuTableViewController: UITableViewController {
 
     @IBAction func Logout(_ sender: UIButton) {
         UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+        UserDefaults.standard.setValue(nil, forKey: "userEmail")
         UserDefaults.standard.synchronize()
         
         let centerview = self.storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController

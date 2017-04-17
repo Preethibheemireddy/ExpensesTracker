@@ -18,9 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
        // Override point for customization after application launch.
-       // let isuserloggedin = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        let isuserloggedin = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
        
-       /*if (isuserloggedin == true) {
+       if (isuserloggedin == true) {
+        
+        userloggedin.userEmail = UserDefaults.standard.value(forKey: "userEmail") as? String
             
             let rootViewController = self.window!.rootViewController
             let mainstoryboard: UIStoryboard = UIStoryboard (name: "Main", bundle: nil)
@@ -35,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window!.rootViewController = centerContainer
             window!.makeKeyAndVisible()
 
-        }*/
+        }
         
 
         return true

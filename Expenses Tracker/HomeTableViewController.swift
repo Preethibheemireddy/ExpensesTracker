@@ -14,6 +14,7 @@ class HomeTableViewController: UITableViewController {
     var myobjects = [expenses]()
     var mytotal: Dictionary<String, Double> = [:]
     
+
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet weak var Tableview: UITableView!
@@ -22,9 +23,10 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        Tableview.estimatedRowHeight = 44.0;
+        Tableview.rowHeight = UITableViewAutomaticDimension
         
         self.navigationController?.setToolbarHidden(false, animated: true)
-        print(userloggedin.userEmail!)
         
         
     }
@@ -109,7 +111,6 @@ class HomeTableViewController: UITableViewController {
         databaseModel.fetchExpenses.sortDescriptors = [sort]
         do {
             let result = try databaseModel.context.fetch(databaseModel.fetchExpenses)
-            print(result.count)
             if (result.count > 0) {
                 for object in result {
                     dateDisplay.formatDate()

@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import CoreData
 
-class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate{
   
     var expenseModel = ExpensesViewModel()
     
@@ -29,8 +29,10 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categorypickerview()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ExpensesViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        categorypickerview()
         if expenseModel.Expensedata != nil {
             
             categoryText.text = expenseModel.Expensedata?.category
@@ -53,6 +55,11 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
     }
     
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,6 +67,7 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
     override func viewWillAppear(_ animated: Bool) {
         
     }
+    
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
         if (expenseModel.isEdited == true ) {
             
@@ -70,6 +78,7 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
         
     }
+    
     
     @IBAction func Save(_ sender: Any) {
         
@@ -138,8 +147,6 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         dateDisplay.formatDate()
         MonthText.text = dateDisplay.dateFormatter.string(from: sender.date)
         
-        
-        
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -164,7 +171,6 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         databaseModel.fetchRegister.sortDescriptors = [sort]
         do {
             let result = try databaseModel.context.fetch(databaseModel.fetchRegister)
-            print(result.count)
             if (result.count > 0) {
                 for object in result {
                     
@@ -226,7 +232,6 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         databaseModel.fetchRegister.sortDescriptors = [sort]
         do {
             let result = try databaseModel.context.fetch(databaseModel.fetchRegister)
-            print(result.count)
             if (result.count > 0) {
                 for object in result {
                     let categoryobject = ((object.category?.allObjects)! as! [Category])
