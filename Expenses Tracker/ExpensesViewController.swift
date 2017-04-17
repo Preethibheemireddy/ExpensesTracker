@@ -11,11 +11,8 @@ import Foundation
 import CoreData
 
 class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    var Expensedata: Expenses? = nil
-    var data: [String] = ["Groceries", "Shopping", "Restaurants"]
-    var numberFormatter = NumberFormatter()
-    var isConversionSuccessful: Bool = false
-    var isEdited = false
+  
+    var expenseModel = ExpensesViewModel()
     
     @IBOutlet weak var Description: UILabel!
     @IBOutlet weak var Amount: UILabel!
@@ -34,13 +31,14 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         super.viewDidLoad()
         categorypickerview()
         
-        if Expensedata != nil {
+        if expenseModel.Expensedata != nil {
             
-            categoryText.text = Expensedata?.category
-            amountText.text = String(describing: Expensedata!.amount)
+            categoryText.text = expenseModel.Expensedata?.category
+            let amount = String(format: "%.2f", expenseModel.Expensedata!.amount )
+            amountText.text = amount
             dateDisplay.formatDate()
-            MonthText.text = dateDisplay.dateFormatter.string(from: Expensedata?.date! as! Date)
-            descriptionText.text = Expensedata?.details
+            MonthText.text = dateDisplay.dateFormatter.string(from: (expenseModel.Expensedata?.date! as Date?)!)
+            descriptionText.text = expenseModel.Expensedata?.details
         }
         
         
@@ -63,7 +61,7 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
     }
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        if (isEdited == true ) {
+        if (expenseModel.isEdited == true ) {
             
             self.performSegue(withIdentifier: "expenseedited", sender: self)
         }
@@ -75,27 +73,23 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     @IBAction func Save(_ sender: Any) {
         
-        if(Expensedata != nil) {
+        if(expenseModel.Expensedata != nil) {
             //update core data
             if (categoryText.text != "" && MonthText.text != "" && amountText.text != "" && descriptionText.text != "") {
                 checkUserInput()
-                if (isConversionSuccessful == true) {
+                if (expenseModel.isConversionSuccessful == true) {
                    
-                    Expensedata?.category = categoryText.text!
-                    Expensedata?.amount = Double(amountText.text!)!
+                    expenseModel.Expensedata?.category = categoryText.text!
+                    expenseModel.Expensedata?.amount = Double(amountText.text!)!
                     dateDisplay.formatDate()
                     
-                    Expensedata?.date = dateDisplay.dateFormatter.date(from: MonthText.text!)! as NSDate
+                    expenseModel.Expensedata?.date = dateDisplay.dateFormatter.date(from: MonthText.text!)! as NSDate
                     
-                    Expensedata?.details = descriptionText.text
+                    expenseModel.Expensedata?.details = descriptionText.text
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
                     self.performSegue(withIdentifier: "expenseedited", sender: self)
                 }
-                else{
-                    alertDisplay.displayalert(usermessage: "Invalid data", view: self)
-                    
-                    return
-                }
+               
 
             }
             else{
@@ -109,15 +103,11 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         else if (categoryText.text != "" && MonthText.text != "" && amountText.text != "" && descriptionText.text != "") {
             checkUserInput()
             
-            if (isConversionSuccessful == true) {
+            if (expenseModel.isConversionSuccessful == true) {
                 saveexpense()
                 
             }
-            else{
-                alertDisplay.displayalert(usermessage: "Invalid data", view: self)
-                
-                return
-            }
+           
             
             self.performSegue(withIdentifier: "saveexpense", sender: self)
             
@@ -155,15 +145,15 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return data.count
+        return expenseModel.data.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
        
-        return data[row]
+        return expenseModel.data[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        categoryText.text = data[row]
+        categoryText.text = expenseModel.data[row]
     }
     
     func saveexpense() {
@@ -207,20 +197,23 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     func checkUserInput() {
         
-        if let userInput = numberFormatter.number(from: amountText.text!)?.doubleValue {
+        if ((expenseModel.numberFormatter.number(from: amountText.text!)?.doubleValue)) != nil {
             
-            if let userDate = dateDisplay.dateFormatter.date(from: MonthText.text!) as NSDate? {
-                isConversionSuccessful = true
+            if ((dateDisplay.dateFormatter.date(from: MonthText.text!) as NSDate?)) != nil {
+                expenseModel.isConversionSuccessful = true
                 
             }
             else{
-                isConversionSuccessful = false
+                alertDisplay.displayalert(usermessage: "Enter valid date", view: self)
+                expenseModel.isConversionSuccessful = false
+                return
             }
             
             
         } else{
-            
-            isConversionSuccessful = false
+            alertDisplay.displayalert(usermessage: "Enter valid amount", view: self)
+            expenseModel.isConversionSuccessful = false
+            return
         }
     }
     
@@ -241,8 +234,8 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
                     for value in categoryobject {
                         
                         
-                        if(!data.contains(value.category!)) {
-                            data.append(value.category!)
+                        if(!expenseModel.data.contains(value.category!)) {
+                            expenseModel.data.append(value.category!)
                         }
                         
                     }

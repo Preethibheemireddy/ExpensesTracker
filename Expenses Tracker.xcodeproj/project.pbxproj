@@ -44,6 +44,7 @@
 		02B4E0701E72654700BAFC73 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4E06A1E72654700BAFC73 /* Category+CoreDataClass.swift */; };
 		02D4DEDF1E95B18F0052624B /* alertDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D4DEDE1E95B18F0052624B /* alertDisplay.swift */; };
 		02D4DEE11E95C7810052624B /* dateDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D4DEE01E95C7810052624B /* dateDisplay.swift */; };
+		02F66A751EA525DC008CF6E9 /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F66A741EA525DC008CF6E9 /* ExpensesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		02B4E06A1E72654700BAFC73 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "../Category+CoreDataClass.swift"; sourceTree = "<group>"; };
 		02D4DEDE1E95B18F0052624B /* alertDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = alertDisplay.swift; path = "Expenses Tracker/alertDisplay.swift"; sourceTree = "<group>"; };
 		02D4DEE01E95C7810052624B /* dateDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dateDisplay.swift; sourceTree = "<group>"; };
+		02F66A741EA525DC008CF6E9 /* ExpensesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				02B4DFE11E70978100BAFC73 /* AppDelegate.swift */,
+				02F66A741EA525DC008CF6E9 /* ExpensesViewModel.swift */,
 				02766D961E84A4E000FA3C90 /* CustomTableViewCell.swift */,
 				02B4E02D1E71022500BAFC73 /* MainViewController.swift */,
 				02B4E0311E71060200BAFC73 /* RegisterViewController.swift */,
@@ -412,6 +415,7 @@
 				02B4E06C1E72654700BAFC73 /* Expenses+CoreDataClass.swift in Sources */,
 				029634C21E7B394B007B7FA7 /* Loggedin.swift in Sources */,
 				029634C41E81A3DF007B7FA7 /* ExpensesTableViewController.swift in Sources */,
+				02F66A751EA525DC008CF6E9 /* ExpensesViewModel.swift in Sources */,
 				02B4E0341E72192400BAFC73 /* MonthYearPickerView.swift in Sources */,
 				02B4E0221E70983900BAFC73 /* HomeTableViewController.swift in Sources */,
 				02B4E01E1E7097E700BAFC73 /* MMDrawerController.m in Sources */,

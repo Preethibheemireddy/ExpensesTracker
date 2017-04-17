@@ -741,7 +741,7 @@
         <!--Navigation Controller-->
         <scene sceneID="DZX-nF-H2T">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="r4y-PY-Hwd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Navigation" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="r4y-PY-Hwd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mi4-TA-8QK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -935,7 +935,7 @@
         <!--Navigation Controller-->
         <scene sceneID="aiC-R4-eCo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3an-gV-P2m" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="3an-gV-P2m" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DhZ-4W-mQU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -955,13 +955,13 @@
         <image name="expense.jpg" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="T9B-Sf-kul"/>
-        <segue reference="13n-4W-BVN"/>
-        <segue reference="FiD-u2-QRt"/>
-        <segue reference="h8z-Lf-OiX"/>
-        <segue reference="gi2-pp-nXE"/>
-        <segue reference="c3C-0f-mS7"/>
         <segue reference="OcF-V9-yNr"/>
         <segue reference="6mG-VG-bPu"/>
+        <segue reference="gi2-pp-nXE"/>
+        <segue reference="h8z-Lf-OiX"/>
+        <segue reference="YC1-RE-ksI"/>
+        <segue reference="c3C-0f-mS7"/>
+        <segue reference="T9B-Sf-kul"/>
+        <segue reference="13n-4W-BVN"/>
     </inferredMetricsTieBreakers>
 </document>

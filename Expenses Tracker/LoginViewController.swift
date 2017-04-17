@@ -35,13 +35,7 @@ class LoginViewController: UIViewController {
                 userloggedin.userEmail = self.login.text
                 
                 self.performSegue(withIdentifier: "Loggedin", sender: self)
-                /*let Aboutview = self.storyboard?.instantiateViewController(withIdentifier: "HomeTableViewController") as! HomeTableViewController
-                let AboutNav = UINavigationController(rootViewController: Aboutview)
-                let mainstoryboard: UIStoryboard = UIStoryboard (name: "Main", bundle: nil)
-                let leftViewController = mainstoryboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
-                let leftsideNav = UINavigationController(rootViewController: leftViewController)
-                appdelegate.centerContainer!.centerViewController = AboutNav
-                appdelegate.centerContainer?.leftDrawerViewController = leftsideNav*/
+                
                 slidemenu()
                 
                 
@@ -96,8 +90,6 @@ class LoginViewController: UIViewController {
         let centerNav = UINavigationController(rootViewController: centerViewController)
         
         let centerContainer: MMDrawerController = MMDrawerController(center: centerNav, leftDrawerViewController: leftsideNav)
-        // centerContainer.centerViewController = centerNav
-        //   centerContainer.leftDrawerViewController = leftsideNav
         centerContainer.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView;
         centerContainer.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView;
         

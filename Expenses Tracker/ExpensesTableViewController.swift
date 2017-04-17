@@ -51,7 +51,7 @@ class ExpensesTableViewController: UITableViewController {
                     dateDisplay.formatDate()
                     dateDisplay.dateFormatter.dateFormat = "MMMM/YYYY"
                     
-                    let Mydate = dateDisplay.dateFormatter.string(from: object.date as! Date )
+                    let Mydate = dateDisplay.dateFormatter.string(from: (object.date as Date?)! )
                     
                     if (Mydate == userloggedin.userSelectedDate!) {
                         expense.append(object)
@@ -93,7 +93,7 @@ class ExpensesTableViewController: UITableViewController {
         cell.detailsLabel.text = result.details
         dateDisplay.formatDate()
         
-        let mydate = dateDisplay.dateFormatter.string(from: result.date as! Date)
+        let mydate = dateDisplay.dateFormatter.string(from: (result.date as Date?)!)
         cell.dateLabel.text = mydate
         
         return cell
@@ -135,8 +135,8 @@ class ExpensesTableViewController: UITableViewController {
             let indexpath = Tableview.indexPathForSelectedRow!
             let item: ExpensesViewController  = segue.destination as! ExpensesViewController
             let newtask: Expenses = expense[indexpath.row]
-            item.Expensedata = newtask
-            item.isEdited = true
+            item.expenseModel.Expensedata = newtask
+            item.expenseModel.isEdited = true
         }
         
         // Get the new view controller using segue.destinationViewController.
