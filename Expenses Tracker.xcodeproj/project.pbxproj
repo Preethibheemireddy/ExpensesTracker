@@ -38,13 +38,13 @@
 		02B4E02E1E71022500BAFC73 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4E02D1E71022500BAFC73 /* MainViewController.swift */; };
 		02B4E0301E7105D200BAFC73 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4E02F1E7105D200BAFC73 /* LoginViewController.swift */; };
 		02B4E0321E71060200BAFC73 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4E0311E71060200BAFC73 /* RegisterViewController.swift */; };
-		02B4E0341E72192400BAFC73 /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4E0331E72192400BAFC73 /* MonthYearPickerView.swift */; };
 		02B4E06C1E72654700BAFC73 /* Expenses+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4E0661E72654700BAFC73 /* Expenses+CoreDataClass.swift */; };
 		02B4E06E1E72654700BAFC73 /* Register+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4E0681E72654700BAFC73 /* Register+CoreDataClass.swift */; };
 		02B4E0701E72654700BAFC73 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B4E06A1E72654700BAFC73 /* Category+CoreDataClass.swift */; };
 		02D4DEDF1E95B18F0052624B /* alertDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D4DEDE1E95B18F0052624B /* alertDisplay.swift */; };
 		02D4DEE11E95C7810052624B /* dateDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D4DEE01E95C7810052624B /* dateDisplay.swift */; };
 		02F66A751EA525DC008CF6E9 /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F66A741EA525DC008CF6E9 /* ExpensesViewModel.swift */; };
+		02F66A771EA66470008CF6E9 /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 02F66A761EA66470008CF6E9 /* Menu.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,13 +108,13 @@
 		02B4E02D1E71022500BAFC73 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		02B4E02F1E7105D200BAFC73 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		02B4E0311E71060200BAFC73 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		02B4E0331E72192400BAFC73 /* MonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
 		02B4E0661E72654700BAFC73 /* Expenses+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Expenses+CoreDataClass.swift"; path = "../Expenses+CoreDataClass.swift"; sourceTree = "<group>"; };
 		02B4E0681E72654700BAFC73 /* Register+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Register+CoreDataClass.swift"; path = "../Register+CoreDataClass.swift"; sourceTree = "<group>"; };
 		02B4E06A1E72654700BAFC73 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "../Category+CoreDataClass.swift"; sourceTree = "<group>"; };
 		02D4DEDE1E95B18F0052624B /* alertDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = alertDisplay.swift; path = "Expenses Tracker/alertDisplay.swift"; sourceTree = "<group>"; };
 		02D4DEE01E95C7810052624B /* dateDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dateDisplay.swift; sourceTree = "<group>"; };
 		02F66A741EA525DC008CF6E9 /* ExpensesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
+		02F66A761EA66470008CF6E9 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,8 +202,8 @@
 				02B4E0591E725E2D00BAFC73 /* DatabaseModels */,
 				02B4E0121E7097AE00BAFC73 /* SideMenu */,
 				02B4DFE51E70978100BAFC73 /* Main.storyboard */,
-				02B4E0331E72192400BAFC73 /* MonthYearPickerView.swift */,
 				02B4DFEB1E70978100BAFC73 /* Assets.xcassets */,
+				02F66A761EA66470008CF6E9 /* Menu.png */,
 				02766D981E8574E100FA3C90 /* expense.jpg */,
 				02906CF71E82E68D004347EE /* expenses.jpg */,
 				029634BF1E7B2010007B7FA7 /* back2.jpg */,
@@ -372,6 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02F66A771EA66470008CF6E9 /* Menu.png in Resources */,
 				029634BE1E7B1D86007B7FA7 /* back.jpg in Resources */,
 				02B4DFEF1E70978100BAFC73 /* LaunchScreen.storyboard in Resources */,
 				02906CF81E82E68D004347EE /* expenses.jpg in Resources */,
@@ -417,7 +418,6 @@
 				029634C21E7B394B007B7FA7 /* Loggedin.swift in Sources */,
 				029634C41E81A3DF007B7FA7 /* ExpensesTableViewController.swift in Sources */,
 				02F66A751EA525DC008CF6E9 /* ExpensesViewModel.swift in Sources */,
-				02B4E0341E72192400BAFC73 /* MonthYearPickerView.swift in Sources */,
 				02B4E0221E70983900BAFC73 /* HomeTableViewController.swift in Sources */,
 				02B4E01E1E7097E700BAFC73 /* MMDrawerController.m in Sources */,
 				02B4E0701E72654700BAFC73 /* Category+CoreDataClass.swift in Sources */,

@@ -125,7 +125,7 @@ class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDel
                     categorymodel.categoryobject = ((object.category?.allObjects)! as! [Category])
                     
                     for data in categorymodel.categoryobject {
-                        if((data.category?.lowercased()) == (categoryText.text?.lowercased())) {
+                        if(data.category == categoryText.text) {
                             
                             checkcategory = false
                             return checkcategory

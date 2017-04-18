@@ -25,7 +25,6 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
         Tableview.estimatedRowHeight = 44.0;
         Tableview.rowHeight = UITableViewAutomaticDimension
-        
         self.navigationController?.setToolbarHidden(false, animated: true)
         
         
