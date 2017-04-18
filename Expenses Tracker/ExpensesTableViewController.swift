@@ -34,6 +34,7 @@ class ExpensesTableViewController: UITableViewController {
     @IBAction func Home(_ sender: UIBarButtonItem) {
       
         self.performSegue(withIdentifier: "Home", sender: self)
+        
     }
     
     
