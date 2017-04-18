@@ -15,6 +15,7 @@ class HomeTableViewController: UITableViewController {
     var mytotal: Dictionary<String, Double> = [:]
     
 
+    @IBOutlet weak var addExpenses: UIBarButtonItem!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet weak var Tableview: UITableView!
@@ -25,6 +26,9 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
         Tableview.estimatedRowHeight = 44.0;
         Tableview.rowHeight = UITableViewAutomaticDimension
+       self.navigationController?.navigationBar.barTintColor = UIColor.brown
+        self.navigationController?.toolbar.barTintColor = UIColor.brown
+        
         self.navigationController?.setToolbarHidden(false, animated: true)
         
         

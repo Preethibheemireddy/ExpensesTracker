@@ -15,6 +15,8 @@ class MenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.navigationBar.barTintColor = UIColor.brown
+        
         
     }
 

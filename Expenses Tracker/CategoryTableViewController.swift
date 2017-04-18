@@ -19,6 +19,8 @@ class CategoryTableViewController: UITableViewController   {
         
         Tableview.estimatedRowHeight = 44.0;
         Tableview.rowHeight = UITableViewAutomaticDimension
+        self.navigationController?.navigationBar.barTintColor = UIColor.brown
+        self.navigationController?.toolbar.barTintColor = UIColor.brown
         
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
