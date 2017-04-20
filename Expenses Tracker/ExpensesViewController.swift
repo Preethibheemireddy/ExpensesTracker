@@ -13,6 +13,7 @@ import CoreData
 class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate{
   
     var expenseModel = ExpensesViewModel()
+    var categories: [Category] = []
     
     @IBOutlet weak var Description: UILabel!
     @IBOutlet weak var Amount: UILabel!
@@ -32,7 +33,9 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ExpensesViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        categorypickerview()
+        checkCategory()
+        
+       // categorypickerview()
         if expenseModel.Expensedata != nil {
             
             categoryText.text = expenseModel.Expensedata?.category
@@ -46,8 +49,10 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         let pickerView = UIPickerView()
         
-        pickerView.delegate = self
+       pickerView.delegate = self
+        
         categoryText.inputView = pickerView
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.setToolbarHidden(false, animated: true)
         descriptionText.layer.borderColor = UIColor.black.cgColor
@@ -152,15 +157,22 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return 1
     }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return expenseModel.data.count
+        return categories.count
+            //expenseModel.data.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+            let category = categories[row]
+            return category.category
        
-        return expenseModel.data[row]
+            //expenseModel.data[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        categoryText.text = expenseModel.data[row]
+            let category = categories[row]
+            categoryText.text = category.category
+        
+            //expenseModel.data[row]
     }
     
     func saveexpense() {
@@ -173,8 +185,6 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
             let result = try databaseModel.context.fetch(databaseModel.fetchRegister)
             if (result.count > 0) {
                 for object in result {
-                    
-                    
                     let Expense = Expenses(context: databaseModel.context)
                     Expense.category = categoryText.text
                     Expense.amount = Double(amountText.text!)!
@@ -224,7 +234,26 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     
-    func categorypickerview()  {
+    func checkCategory() {
+        // To sort categories with category
+        let sort = NSSortDescriptor(key: "category", ascending: true)
+        // To predicate category database using email ID
+        let predicate = NSPredicate(format: "register.email = %@", userloggedin.userEmail!)
+        databaseModel.fetchCategory.predicate = predicate
+        databaseModel.fetchCategory.sortDescriptors = [sort]
+        do {
+            categories = try databaseModel.context.fetch(databaseModel.fetchCategory)
+            
+            
+        } catch {
+            print("Fetching Failed")
+            
+        }
+        
+    }
+    
+    
+  /*  func categorypickerview()  {
         let sort = NSSortDescriptor(key: "lastname", ascending: true)
         let predicate = NSPredicate(format: "email = %@", userloggedin.userEmail!)
         //To check if database contains user entered value
@@ -237,7 +266,6 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
                     let categoryobject = ((object.category?.allObjects)! as! [Category])
                     
                     for value in categoryobject {
-                        
                         
                         if(!expenseModel.data.contains(value.category!)) {
                             expenseModel.data.append(value.category!)
@@ -254,7 +282,7 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
             print("Fetching Failed")
             
         }
-    }
+    }*/
     
     
     

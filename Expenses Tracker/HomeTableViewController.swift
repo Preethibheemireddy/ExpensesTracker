@@ -24,6 +24,17 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        checkExpenses()
+        
+        for (key, value) in mytotal {
+            
+            
+            myobjects.append(expenses(date: key, amount: value))
+        }
+        
+        Tableview.reloadData()
+
         Tableview.estimatedRowHeight = 44.0;
         Tableview.rowHeight = UITableViewAutomaticDimension
        self.navigationController?.navigationBar.barTintColor = UIColor.brown
@@ -34,15 +45,6 @@ class HomeTableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setToolbarHidden(false, animated: true)
-        
-        checkExpenses()
-        
-        for (key, value) in mytotal {
-            
-            
-            myobjects.append(expenses(date: key, amount: value))
-        }
-        
         
         
         Tableview.reloadData()
@@ -123,7 +125,16 @@ class HomeTableViewController: UITableViewController {
                     // To check if mytotal dictionary contains any data
                     if (!mytotal.isEmpty) {
                         // if mytotal dictionary is not empty loop through keys to check if key is equal to mydate
-                        for key in mytotal.keys {
+                        
+                        if (mytotal[Mydate] == nil) {
+                            mytotal[Mydate] = object.amount
+                        }
+                        
+                        else{
+                             mytotal[Mydate] = mytotal[Mydate]! + object.amount
+                        }
+                        
+                        /*for key in mytotal.keys {
                             //  if key is not equal to mydate
                             if (key != Mydate ) {
                                 // add expense date to mytotal dictionary
@@ -131,10 +142,13 @@ class HomeTableViewController: UITableViewController {
                             }
                             else{
                                 // if key is equal to mydate update the amount of a date in the dictionary
+                                 print("value is :", mytotal[Mydate]!)
+                                 print("object value is :", object.amount)
                                 mytotal[Mydate] = mytotal[Mydate]! + object.amount
                                 
+                                print("updated value is :", mytotal[Mydate]!)
                             }
-                        }
+                        }*/
                         
                     }
                     else {

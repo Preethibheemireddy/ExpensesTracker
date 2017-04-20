@@ -12,6 +12,7 @@ import UIKit
 import CoreData
 
 class RegisterViewController: UIViewController {
+    var expenseModel = ExpensesViewModel()
     
     
     @IBOutlet weak var ConfirmPassword: UITextField!
@@ -67,6 +68,17 @@ class RegisterViewController: UIViewController {
                     RegisterData.confirmPassword = ConfirmPassword.text
                     
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    
+                    
+                    for item in expenseModel.data {
+                        let categoryData = Category(context: databaseModel.context)
+                        categoryData.setValue(item, forKey: "category")
+                        categoryData.register?.email = RegisterData.email
+                         RegisterData.addToCategory(categoryData)
+                        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                    }
+                    
+                    
                     
                 } catch {
                     print("Fetching Failed")

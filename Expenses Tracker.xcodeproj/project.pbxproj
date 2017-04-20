@@ -113,7 +113,7 @@
 		02B4E06A1E72654700BAFC73 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "../Category+CoreDataClass.swift"; sourceTree = "<group>"; };
 		02D4DEDE1E95B18F0052624B /* alertDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = alertDisplay.swift; path = "Expenses Tracker/alertDisplay.swift"; sourceTree = "<group>"; };
 		02D4DEE01E95C7810052624B /* dateDisplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dateDisplay.swift; sourceTree = "<group>"; };
-		02F66A741EA525DC008CF6E9 /* ExpensesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
+		02F66A741EA525DC008CF6E9 /* ExpensesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExpensesViewModel.swift; path = "Expenses Tracker/ExpensesViewModel.swift"; sourceTree = "<group>"; };
 		02F66A761EA66470008CF6E9 /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Menu.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				02B1C46D1E9E753400E0DE4F /* databaseModel.swift */,
+				02F66A741EA525DC008CF6E9 /* ExpensesViewModel.swift */,
 				029634C11E7B394B007B7FA7 /* Loggedin.swift */,
 				02D4DEDE1E95B18F0052624B /* alertDisplay.swift */,
 				02D4DEE01E95C7810052624B /* dateDisplay.swift */,
@@ -159,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				02B4DFE11E70978100BAFC73 /* AppDelegate.swift */,
-				02F66A741EA525DC008CF6E9 /* ExpensesViewModel.swift */,
 				02766D961E84A4E000FA3C90 /* CustomTableViewCell.swift */,
 				02B4E02D1E71022500BAFC73 /* MainViewController.swift */,
 				02B4E0311E71060200BAFC73 /* RegisterViewController.swift */,

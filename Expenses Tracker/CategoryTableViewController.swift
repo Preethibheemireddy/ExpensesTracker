@@ -116,17 +116,24 @@ class CategoryTableViewController: UITableViewController   {
             // cell to be deleted is selected indexpath.row
             let deletedCategory = categories[indexPath.row]
             // To delete category from database
-            databaseModel.context.delete(deletedCategory as NSManagedObject)
-            // save database
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            // remove deleted category from categories array
-            categories.remove(at: indexPath.row)
-            tableView.beginUpdates()
-            // delete table view cell
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.endUpdates()
+            if(categories.count == 1) {
+                alertDisplay.displayalert(usermessage: "Atleast one category should exists", view: self)
+                return
+            }
+            else{
+                databaseModel.context.delete(deletedCategory as NSManagedObject)
+                // save database
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                // remove deleted category from categories array
+                categories.remove(at: indexPath.row)
+                tableView.beginUpdates()
+                // delete table view cell
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.endUpdates()
+                
+                Tableview.reloadData()
+            }
             
-            Tableview.reloadData()
             
             
             

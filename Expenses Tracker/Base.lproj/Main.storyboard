@@ -948,10 +948,10 @@
         <image name="expense.jpg" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OIf-oj-HrU"/>
-        <segue reference="YC1-RE-ksI"/>
         <segue reference="h8z-Lf-OiX"/>
+        <segue reference="YC1-RE-ksI"/>
         <segue reference="DCd-rG-YFu"/>
+        <segue reference="OIf-oj-HrU"/>
         <segue reference="c3C-0f-mS7"/>
         <segue reference="qi0-FH-Fhr"/>
         <segue reference="OcF-V9-yNr"/>
