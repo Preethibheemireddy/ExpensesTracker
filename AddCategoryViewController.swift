@@ -103,9 +103,11 @@ class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDel
     }
     
     @IBAction func Cancel(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "savecategory", sender: self)
+       // self.performSegue(withIdentifier: "savecategory", sender: self)
         
     }
+    
+   
     
     
     

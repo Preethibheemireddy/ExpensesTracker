@@ -14,7 +14,7 @@ class ExpensesTableViewController: UITableViewController {
     var expense: [Expenses] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        Tableview.estimatedRowHeight = 44.0;
+        Tableview.estimatedRowHeight = 64.0;
         Tableview.rowHeight = UITableViewAutomaticDimension
         navigation.title = userloggedin.userSelectedDate!
         checkExpenses()
@@ -33,7 +33,7 @@ class ExpensesTableViewController: UITableViewController {
     
     @IBAction func Home(_ sender: UIBarButtonItem) {
         
-        self.performSegue(withIdentifier: "Home", sender: self)
+       // self.performSegue(withIdentifier: "Home", sender: self)
         
         
     }

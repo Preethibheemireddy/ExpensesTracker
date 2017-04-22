@@ -12,7 +12,7 @@ import CoreData
 class CategoryTableViewController: UITableViewController   {
     
     var categories: [Category] = []
-    
+    var expense = [Expenses]()
     
     @IBOutlet weak var Tableview: UITableView!
     override func viewDidLoad() {
@@ -53,7 +53,10 @@ class CategoryTableViewController: UITableViewController   {
         databaseModel.fetchCategory.sortDescriptors = [sort]
         do {
             categories = try databaseModel.context.fetch(databaseModel.fetchCategory)
-            
+            for object in categories {
+                expense = ((object.register?.expense?.allObjects) as! [Expenses])
+                
+                            }
             
         } catch {
             print("Fetching Failed")
@@ -62,6 +65,11 @@ class CategoryTableViewController: UITableViewController   {
         
     }
     
+    @IBAction func unwindToCategoryTableViewController(segue: UIStoryboardSegue) {
+        
+        
+    }
+
     
     @IBAction func Homebutton(_ sender: Any) {
         
@@ -109,18 +117,29 @@ class CategoryTableViewController: UITableViewController   {
     }
     
     
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // cell to be deleted is selected indexpath.row
             let deletedCategory = categories[indexPath.row]
-            // To delete category from database
+            
+            //To check if selected category is used in expenses of the user
+            for data in expense {
+                print(data.category!)
+                if ((data.category!) == deletedCategory.category) {
+                    alertDisplay.displayalert(usermessage: "Category used in expenses can't be deleted", view: self)
+                    return
+                }
+            }
+
+            
+            // To check if the selected category is the last one in the list
             if(categories.count == 1) {
-                alertDisplay.displayalert(usermessage: "Atleast one category should exists", view: self)
+                alertDisplay.displayalert(usermessage: "Atleast one category should exist", view: self)
                 return
             }
             else{
+                //To delete caategory from the database
                 databaseModel.context.delete(deletedCategory as NSManagedObject)
                 // save database
                 (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -140,7 +159,7 @@ class CategoryTableViewController: UITableViewController   {
         }
     }
     
-    
+        
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -151,7 +170,6 @@ class CategoryTableViewController: UITableViewController   {
         if segue.identifier == "editcategory" {
             
             let indexpath = Tableview.indexPathForSelectedRow!
-            print(indexpath)
             let item: AddCategoryViewController  = segue.destination as! AddCategoryViewController
             let newtask: Category = categories[indexpath.row]
             item.categorymodel.categorydata = newtask

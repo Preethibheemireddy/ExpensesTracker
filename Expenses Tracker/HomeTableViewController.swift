@@ -12,7 +12,7 @@ import CoreData
 class HomeTableViewController: UITableViewController {
     
     var myobjects = [expenses]()
-    var mytotal: Dictionary<String, Double> = [:]
+    var myExpenses: Dictionary<String, Double> = [:]
     
 
     @IBOutlet weak var addExpenses: UIBarButtonItem!
@@ -26,9 +26,9 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
         
         checkExpenses()
+        //To append key, values of dictionary into myobjects array
         
-        for (key, value) in mytotal {
-            
+        for (key, value) in myExpenses {
             
             myobjects.append(expenses(date: key, amount: value))
         }
@@ -44,6 +44,7 @@ class HomeTableViewController: UITableViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
+       
         self.navigationController?.setToolbarHidden(false, animated: true)
         
         
@@ -56,7 +57,19 @@ class HomeTableViewController: UITableViewController {
     }
     
     
-    
+    @IBAction func unwindToHomeTableViewController(segue: UIStoryboardSegue) {
+        myExpenses.removeAll()
+        myobjects.removeAll()
+        checkExpenses()
+        //To append key, values of dictionary into myobjects array
+        
+        for (key, value) in myExpenses {
+            
+            myobjects.append(expenses(date: key, amount: value))
+        }
+            Tableview.reloadData()
+
+    }
     
     @IBAction func MenuButton(_ sender: Any) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -123,37 +136,22 @@ class HomeTableViewController: UITableViewController {
                     
                     let Mydate = dateDisplay.dateFormatter.string(from: object.date! as Date )
                     // To check if mytotal dictionary contains any data
-                    if (!mytotal.isEmpty) {
-                        // if mytotal dictionary is not empty loop through keys to check if key is equal to mydate
-                        
-                        if (mytotal[Mydate] == nil) {
-                            mytotal[Mydate] = object.amount
+                    if (!myExpenses.isEmpty) {
+                        // if dictionary does not contain mydate add new expense.
+                        if (myExpenses[Mydate] == nil) {
+                            myExpenses[Mydate] = object.amount
                         }
                         
+                            //if dictionary contains mydate as key then update its value by adding amount
                         else{
-                             mytotal[Mydate] = mytotal[Mydate]! + object.amount
+                             myExpenses[Mydate] = myExpenses[Mydate]! + object.amount
                         }
                         
-                        /*for key in mytotal.keys {
-                            //  if key is not equal to mydate
-                            if (key != Mydate ) {
-                                // add expense date to mytotal dictionary
-                                mytotal[Mydate] = object.amount
-                            }
-                            else{
-                                // if key is equal to mydate update the amount of a date in the dictionary
-                                 print("value is :", mytotal[Mydate]!)
-                                 print("object value is :", object.amount)
-                                mytotal[Mydate] = mytotal[Mydate]! + object.amount
-                                
-                                print("updated value is :", mytotal[Mydate]!)
-                            }
-                        }*/
                         
                     }
                     else {
                         //  if dictionary is empty add new expense to it
-                        mytotal[Mydate] = object.amount
+                        myExpenses[Mydate] = object.amount
                         
                     }
                     

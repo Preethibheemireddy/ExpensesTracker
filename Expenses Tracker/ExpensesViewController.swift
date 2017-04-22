@@ -74,13 +74,17 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        if (expenseModel.isEdited == true ) {
+        /*if (expenseModel.isEdited == true ) {
             
-            self.performSegue(withIdentifier: "expenseedited", sender: self)
+            self.navigationController?.popViewController(animated: true)
+            //self.performSegue(withIdentifier: "expenseedited", sender: self)
         }
         else{
-            self.performSegue(withIdentifier: "saveexpense", sender: self)
-        }
+            self.navigationController?.popViewController(animated: true)
+           // self.performSegue(withIdentifier: "saveexpense", sender: self)
+        }*/
+        
+        self.navigationController?.popViewController(animated: true)
         
     }
     
@@ -253,36 +257,6 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     
-  /*  func categorypickerview()  {
-        let sort = NSSortDescriptor(key: "lastname", ascending: true)
-        let predicate = NSPredicate(format: "email = %@", userloggedin.userEmail!)
-        //To check if database contains user entered value
-        databaseModel.fetchRegister.predicate = predicate
-        databaseModel.fetchRegister.sortDescriptors = [sort]
-        do {
-            let result = try databaseModel.context.fetch(databaseModel.fetchRegister)
-            if (result.count > 0) {
-                for object in result {
-                    let categoryobject = ((object.category?.allObjects)! as! [Category])
-                    
-                    for value in categoryobject {
-                        
-                        if(!expenseModel.data.contains(value.category!)) {
-                            expenseModel.data.append(value.category!)
-                        }
-                        
-                    }
-                }
-                
-            }
-            else{
-                print("error")
-            }
-        } catch {
-            print("Fetching Failed")
-            
-        }
-    }*/
     
     
     
