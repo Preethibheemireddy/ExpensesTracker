@@ -142,6 +142,8 @@ class ExpensesTableViewController: UITableViewController {
             let newtask: Expenses = expense[indexpath.row]
             item.expenseModel.Expensedata = newtask
             item.expenseModel.isEdited = true
+            item.trash.accessibilityElementsHidden = false
+            item.toolbarItems?.insert(item.trash, at: 2)
         }
         
         // Get the new view controller using segue.destinationViewController.

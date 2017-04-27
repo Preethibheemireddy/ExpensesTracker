@@ -15,6 +15,7 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
     var expenseModel = ExpensesViewModel()
     var categories: [Category] = []
     
+    @IBOutlet weak var trash: UIBarButtonItem!
     @IBOutlet weak var Description: UILabel!
     @IBOutlet weak var Amount: UILabel!
     @IBOutlet weak var category: UILabel!
@@ -30,12 +31,11 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.toolbarItems?.remove(at: 2)
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ExpensesViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         checkCategory()
         
-       // categorypickerview()
         if expenseModel.Expensedata != nil {
             
             categoryText.text = expenseModel.Expensedata?.category
@@ -236,7 +236,12 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
             return
         }
     }
+      
     
+    @IBAction func trash(_ sender: UIBarButtonItem) {
+        self.delete()
+        
+    }
     
     func checkCategory() {
         // To sort categories with category
@@ -255,6 +260,26 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         }
         
     }
+    
+    func delete (){
+        let alertController = UIAlertController(title: "", message: "Are you sure?", preferredStyle: .actionSheet)
+        
+        let  deleteButton = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
+            databaseModel.context.delete(self.expenseModel.Expensedata! as NSManagedObject)
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            self.performSegue(withIdentifier: "expenseedited", sender: self)
+            
+        })
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+        })
+        
+        alertController.addAction(deleteButton)
+        alertController.addAction(cancelButton)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     
     
     

@@ -24,6 +24,7 @@ class CategoryTableViewController: UITableViewController   {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.setToolbarHidden(false, animated: true)
+     
         
     }
     
@@ -33,6 +34,7 @@ class CategoryTableViewController: UITableViewController   {
         Tableview.reloadData()
         
     }
+
     
     
     
@@ -118,6 +120,7 @@ class CategoryTableViewController: UITableViewController   {
     
     
     // Override to support editing the table view.
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // cell to be deleted is selected indexpath.row

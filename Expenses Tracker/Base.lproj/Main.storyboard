@@ -47,6 +47,7 @@
                             <outlet property="delegate" destination="uvz-fe-Kli" id="Ex0-5g-xGr"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Category" id="enj-st-SnT">
                         <barButtonItem key="leftBarButtonItem" image="Menu.png" style="plain" id="hS1-GT-DLJ">
                             <inset key="imageInsets" minX="0.0" minY="15" maxX="20" maxY="10"/>
@@ -62,6 +63,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Tableview" destination="sXE-1h-TNu" id="Kez-vG-d8S"/>
                         <segue destination="cB6-Vh-L1k" kind="show" identifier="categorytomenu" id="qUi-Cg-H2A"/>
@@ -250,7 +252,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="HomeTableViewController" id="cB6-Vh-L1k" customClass="HomeTableViewController" customModule="Expenses_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tr1-Vz-He6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -645,7 +647,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bpt-LH-uPf">
-                                <rect key="frame" x="30" y="304" width="317" height="319"/>
+                                <rect key="frame" x="30" y="304" width="317" height="275"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -710,6 +712,13 @@
                                 <action selector="Save:" destination="Ydt-39-hn8" id="QfA-Lh-lve"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="wtp-Yo-3qQ"/>
+                        <barButtonItem systemItem="trash" id="RKV-vt-fmL">
+                            <color key="tintColor" red="0.071442594550000002" green="0.065952897910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="trash:" destination="Ydt-39-hn8" id="XJu-vf-XtQ"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="S7G-vv-uyO">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="y0O-ch-uvU">
@@ -719,6 +728,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="Amount" destination="dxo-o9-zPs" id="ekH-4a-VLx"/>
                         <outlet property="MonthText" destination="ewK-VF-7lV" id="6QN-IZ-qk1"/>
@@ -727,6 +737,7 @@
                         <outlet property="category" destination="cXv-Vc-4w8" id="aOk-Y5-XEW"/>
                         <outlet property="categoryText" destination="CcS-kG-JfT" id="eGD-EW-hL7"/>
                         <outlet property="descriptionText" destination="bpt-LH-uPf" id="bw8-v3-Piy"/>
+                        <outlet property="trash" destination="RKV-vt-fmL" id="7rU-4e-UxD"/>
                         <segue destination="cB6-Vh-L1k" kind="show" identifier="saveexpense" id="D9A-V4-oOs"/>
                         <segue destination="6FK-Dm-53K" kind="show" identifier="expenseedited" id="13n-4W-BVN"/>
                     </connections>
@@ -953,13 +964,13 @@
         <image name="expense.jpg" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="6mG-VG-bPu"/>
+        <segue reference="OcF-V9-yNr"/>
+        <segue reference="qi0-FH-Fhr"/>
+        <segue reference="c3C-0f-mS7"/>
+        <segue reference="h8z-Lf-OiX"/>
+        <segue reference="D9A-V4-oOs"/>
         <segue reference="T9B-Sf-kul"/>
         <segue reference="13n-4W-BVN"/>
-        <segue reference="h8z-Lf-OiX"/>
-        <segue reference="qUi-Cg-H2A"/>
-        <segue reference="OcF-V9-yNr"/>
-        <segue reference="6mG-VG-bPu"/>
-        <segue reference="c3C-0f-mS7"/>
-        <segue reference="qi0-FH-Fhr"/>
     </inferredMetricsTieBreakers>
 </document>
