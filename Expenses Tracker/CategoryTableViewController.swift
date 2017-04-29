@@ -12,7 +12,7 @@ import CoreData
 class CategoryTableViewController: UITableViewController   {
     
     var categories: [Category] = []
-    var expense = [Expenses]()
+   var expense = [Expenses]()
     
     @IBOutlet weak var Tableview: UITableView!
     override func viewDidLoad() {
@@ -177,7 +177,7 @@ class CategoryTableViewController: UITableViewController   {
             let newtask: Category = categories[indexpath.row]
             item.categorymodel.categorydata = newtask
             
-            
+            item.toolbarItems?.insert(item.trash, at: 2)
             
         }
         

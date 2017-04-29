@@ -13,11 +13,13 @@ import CoreData
 class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDelegate {
     
     var categorymodel = AddCategoryModel()
+    var categoryView = CategoryTableViewController()
     @IBOutlet weak var category: UILabel!
     
+    @IBOutlet weak var trash: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.toolbarItems?.remove(at: 2)
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(AddCategoryViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         self.navigationController?.setToolbarHidden(false, animated: true)
@@ -108,7 +110,47 @@ class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDel
     }
     
    
+    func deleteCategory (){
+        let alertController = UIAlertController(title: "", message: "Are you sure?", preferredStyle: .actionSheet)
+        
+        let  deleteButton = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
+            
+            self.categoryView.checkCategory()
+            
+                for data in self.categoryView.expense {
+                    print(data.category!)
+                    if ((data.category!) == self.categorymodel.categorydata!.category) {
+                        alertDisplay.displayalert(usermessage: "Category used in expenses can't be deleted", view: self)
+                        return
+                    }
+                }
+            if(self.categoryView.categories.count == 1) {
+                alertDisplay.displayalert(usermessage: "Atleast one category should exist", view: self)
+                return
+            }
+            else{
+                databaseModel.context.delete(self.categorymodel.categorydata! as NSManagedObject)
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                self.performSegue(withIdentifier: "savecategory", sender: self)
+            }
+            
+            
+        })
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) -> Void in
+        })
+        
+        alertController.addAction(deleteButton)
+        alertController.addAction(cancelButton)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
     
+
+    @IBAction func trashButton(_ sender: UIBarButtonItem) {
+        
+        deleteCategory()
+    }
     
     
     func saveexpense()  -> Bool {
