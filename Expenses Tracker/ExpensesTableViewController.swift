@@ -141,7 +141,6 @@ class ExpensesTableViewController: UITableViewController {
             let item: ExpensesViewController  = segue.destination as! ExpensesViewController
             let newtask: Expenses = expense[indexpath.row]
             item.expenseModel.Expensedata = newtask
-            item.expenseModel.isEdited = true
             item.toolbarItems?.insert(item.trash, at: 2)
         }
         

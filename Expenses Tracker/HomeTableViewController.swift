@@ -81,16 +81,16 @@ class HomeTableViewController: UITableViewController {
     @IBAction func AddExpenses(_ sender: Any) {
         performSegue(withIdentifier: "Expenses", sender: self)
     }
-    // MARK: - Table view data source
+    //Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         
         return myobjects.count
         
@@ -116,8 +116,7 @@ class HomeTableViewController: UITableViewController {
         let value = myobjects[indexPath.row]
         userloggedin.userSelectedDate = value.date
         
-        print(userloggedin.userSelectedDate!)
-    }
+            }
     
     func checkExpenses() {
         // To sort expenses by date

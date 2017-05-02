@@ -59,7 +59,7 @@ class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDel
         if(categorymodel.categorydata != nil) {
             //update core data
             //check if category already exists
-            categorymodel.isSuccessful = saveexpense()
+            categorymodel.isSuccessful = checkCategory()
             
             // if category doesn't exist in database update category with new category
             if (categorymodel.isSuccessful == true) {
@@ -77,7 +77,7 @@ class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDel
             //save to core data
             
             // check if category already exists
-            categorymodel.isSuccessful = saveexpense()
+            categorymodel.isSuccessful = checkCategory()
             // // if category doesn't exist in database create new category
             if (categorymodel.isSuccessful == true) {
                 for object in categorymodel.result {
@@ -117,13 +117,14 @@ class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDel
             
             self.categoryView.checkCategory()
             
+            //To check if selected category is used in expenses of the user
                 for data in self.categoryView.expense {
-                    print(data.category!)
                     if ((data.category!) == self.categorymodel.categorydata!.category) {
                         alertDisplay.displayalert(usermessage: "Category used in expenses can't be deleted", view: self)
                         return
                     }
                 }
+            // To check if the selected category is the last one in the list
             if(self.categoryView.categories.count == 1) {
                 alertDisplay.displayalert(usermessage: "Atleast one category should exist", view: self)
                 return
@@ -153,8 +154,8 @@ class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDel
     }
     
     
-    func saveexpense()  -> Bool {
-        var checkcategory: Bool = false
+    func checkCategory()  -> Bool {
+        var isCategoryNotPresent: Bool = false
         // To sort Register database with lastname
         let sort = NSSortDescriptor(key: "lastname", ascending: true)
         // To predicate the data using email ID
@@ -171,13 +172,13 @@ class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDel
                     for data in categorymodel.categoryobject {
                         if(data.category == categoryText.text) {
                             
-                            checkcategory = false
-                            return checkcategory
+                            isCategoryNotPresent = false
+                            return isCategoryNotPresent
                         }
                         
                         
                     }
-                    checkcategory = true
+                    isCategoryNotPresent = true
                 }
                 
             }
@@ -188,7 +189,7 @@ class AddCategoryViewController: UIViewController, NSFetchedResultsControllerDel
             print("Fetching Failed")
             
         }
-        return checkcategory
+        return isCategoryNotPresent
     }
     
     

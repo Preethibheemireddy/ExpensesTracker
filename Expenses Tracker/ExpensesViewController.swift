@@ -69,20 +69,9 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
     
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        /*if (expenseModel.isEdited == true ) {
-            
-            self.navigationController?.popViewController(animated: true)
-            //self.performSegue(withIdentifier: "expenseedited", sender: self)
-        }
-        else{
-            self.navigationController?.popViewController(animated: true)
-           // self.performSegue(withIdentifier: "saveexpense", sender: self)
-        }*/
+        
         
         self.navigationController?.popViewController(animated: true)
         
@@ -93,8 +82,10 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         
         if(expenseModel.Expensedata != nil) {
             //update core data
+            //if textfields are not nil
             if (categoryText.text != "" && MonthText.text != "" && amountText.text != "" && descriptionText.text != "") {
                 checkUserInput()
+                //if amount and date entered are in correct format
                 if (expenseModel.isConversionSuccessful == true) {
                    
                     expenseModel.Expensedata?.category = categoryText.text!
@@ -110,6 +101,7 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
                
 
             }
+                //if any field is empty raise alert
             else{
                 alertDisplay.displayalert(usermessage: "All fields are required", view: self)
                 
@@ -117,7 +109,7 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
             }
             
         }
-            
+            //create new expense
         else if (categoryText.text != "" && MonthText.text != "" && amountText.text != "" && descriptionText.text != "") {
             checkUserInput()
             
@@ -130,6 +122,7 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
             self.performSegue(withIdentifier: "saveexpense", sender: self)
             
         }
+            //if any field is empty
         else{
             alertDisplay.displayalert(usermessage: "All fields are required", view: self)
             
@@ -189,13 +182,15 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
             let result = try databaseModel.context.fetch(databaseModel.fetchRegister)
             if (result.count > 0) {
                 for object in result {
+                    //create new expense
                     let Expense = Expenses(context: databaseModel.context)
                     Expense.category = categoryText.text
                     Expense.amount = Double(amountText.text!)!
                     Expense.date = dateDisplay.dateFormatter.date(from: MonthText.text!) as NSDate?
                     Expense.details = descriptionText.text
-                    
+                    //add user email to expense
                     Expense.register?.email = object.email
+                    //add expense to user object
                     object.addToExpense(Expense)
                     
                     
@@ -223,13 +218,14 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 expenseModel.isConversionSuccessful = true
                 
             }
+                //if date entered is not valid
             else{
                 alertDisplay.displayalert(usermessage: "Enter valid date", view: self)
                 expenseModel.isConversionSuccessful = false
                 return
             }
             
-            
+            //if amount entered is not converted to double
         } else{
             alertDisplay.displayalert(usermessage: "Enter valid amount", view: self)
             expenseModel.isConversionSuccessful = false
@@ -265,6 +261,7 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
         let alertController = UIAlertController(title: "", message: "Are you sure?", preferredStyle: .actionSheet)
         
         let  deleteButton = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
+            //to delete user selected expense from database
             databaseModel.context.delete(self.expenseModel.Expensedata! as NSManagedObject)
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             self.performSegue(withIdentifier: "expenseedited", sender: self)

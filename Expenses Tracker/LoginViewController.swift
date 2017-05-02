@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     let appdelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
+        //to dissmiss keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
@@ -33,7 +34,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func Login(_ sender: Any) {
-        
+        //if textfields are not nil
         if (login.text != "" && password.text != "") {
             //To check if email exists in database
             let login = checkEmail()

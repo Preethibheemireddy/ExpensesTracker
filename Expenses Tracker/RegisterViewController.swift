@@ -22,6 +22,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var Firstname: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        //To dismiss keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
@@ -42,10 +43,13 @@ class RegisterViewController: UIViewController {
     }
     
     func Registeruser() {
+        // if textfields are not nil
         if (Firstname.text != "" && Lastname.text != "" && Password.text != "" && ConfirmPassword.text != "" && Email.text != "") {
-            
+            //if password is equal to confirm password
             if (Password.text == ConfirmPassword.text) {
+                //to sort register databse using lastname
                 let sort = NSSortDescriptor(key: "lastname", ascending: true)
+                //To predicte register database using emailId
                 let predicate = NSPredicate(format: "email = %@", Email.text!)
                 //To check if database contains user entered value
                 databaseModel.fetchRegister.predicate = predicate
@@ -54,11 +58,13 @@ class RegisterViewController: UIViewController {
                 
                 do {
                     let result = try databaseModel.context.fetch(databaseModel.fetchRegister)
+                    //if user already exist in database raise alert
                     if (result.count > 0) {
                         alertDisplay.displayalert(usermessage: "User with this Email Id already exists", view: self)
                         
                         return
                     }
+                    //create new user
                     let RegisterData = Register(context: databaseModel.context)
                     
                     RegisterData.email = Email.text
@@ -69,8 +75,9 @@ class RegisterViewController: UIViewController {
                     
                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
                     
-                    
+                    //loop through items in expensesmodel.data array to assign default categories to registered user
                     for item in expenseModel.data {
+                        //create category database
                         let categoryData = Category(context: databaseModel.context)
                         categoryData.setValue(item, forKey: "category")
                         categoryData.register?.email = RegisterData.email
@@ -88,12 +95,14 @@ class RegisterViewController: UIViewController {
                 
                 
             }
+                //if passwords do not match
             else{
                 alertDisplay.displayalert(usermessage: "Passwords do not match", view: self)
                 
                 return
             }
         }
+            //if any textfield is empty
         else{
             alertDisplay.displayalert(usermessage: "All the fields are required", view: self)
             

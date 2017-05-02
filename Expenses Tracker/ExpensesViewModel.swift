@@ -15,6 +15,5 @@ class ExpensesViewModel {
     var data: [String] = ["Groceries", "Shopping", "Restaurants"]
     var numberFormatter = NumberFormatter()
     var isConversionSuccessful: Bool = false
-    var isEdited = false
     
 }
