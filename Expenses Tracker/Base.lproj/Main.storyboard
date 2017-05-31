@@ -297,7 +297,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem title="Add Expenses" width="361" style="plain" id="KwS-Dd-rkX">
+                        <barButtonItem title="Add Expenses" width="355" style="plain" id="KwS-Dd-rkX">
                             <color key="tintColor" red="0.071442594550000002" green="0.065952897910000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="AddExpenses:" destination="cB6-Vh-L1k" id="7Pg-jw-rbN"/>
@@ -418,14 +418,14 @@
                         <viewControllerLayoutGuide type="bottom" id="6wS-I5-ijJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QqI-Og-U8g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="expense.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="NEK-H3-TZe">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7M-GW-6I1">
-                                <rect key="frame" x="144" y="451" width="86" height="30"/>
+                                <rect key="frame" x="144" y="407" width="86" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.63225592279999998" blue="0.065940468579999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8lu-cw-zm4"/>
@@ -456,7 +456,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAm-kA-hNA">
-                                <rect key="frame" x="149" y="389" width="76" height="30"/>
+                                <rect key="frame" x="149" y="345" width="76" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.63225592279999998" blue="0.065940468579999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8c8-xL-OkN"/>
@@ -509,7 +509,7 @@
                         <viewControllerLayoutGuide type="bottom" id="J1E-jA-qv8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xH8-mb-D00">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JE5-ie-5of">
@@ -784,7 +784,7 @@
                         <viewControllerLayoutGuide type="bottom" id="hjc-1C-XoA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ip9-Cl-ukL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybb-md-JCV">
@@ -971,13 +971,13 @@
         <image name="expense.jpg" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="h8z-Lf-OiX"/>
-        <segue reference="qUi-Cg-H2A"/>
-        <segue reference="OcF-V9-yNr"/>
-        <segue reference="6mG-VG-bPu"/>
-        <segue reference="OIf-oj-HrU"/>
         <segue reference="DCd-rG-YFu"/>
+        <segue reference="YC1-RE-ksI"/>
+        <segue reference="h8z-Lf-OiX"/>
+        <segue reference="OIf-oj-HrU"/>
         <segue reference="c3C-0f-mS7"/>
         <segue reference="qi0-FH-Fhr"/>
+        <segue reference="OcF-V9-yNr"/>
+        <segue reference="6mG-VG-bPu"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -24,7 +24,6 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         checkExpenses()
         //To append key, values of dictionary into myobjects array
         

@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		02766D971E84A4E000FA3C90 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02766D961E84A4E000FA3C90 /* CustomTableViewCell.swift */; };
 		02766D991E8574E100FA3C90 /* expense.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02766D981E8574E100FA3C90 /* expense.jpg */; };
-		02906CF81E82E68D004347EE /* expenses.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02906CF71E82E68D004347EE /* expenses.jpg */; };
-		029634BE1E7B1D86007B7FA7 /* back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 029634BD1E7B1D86007B7FA7 /* back.jpg */; };
-		029634C01E7B2010007B7FA7 /* back2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 029634BF1E7B2010007B7FA7 /* back2.jpg */; };
 		029634C21E7B394B007B7FA7 /* Loggedin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029634C11E7B394B007B7FA7 /* Loggedin.swift */; };
 		029634C41E81A3DF007B7FA7 /* ExpensesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029634C31E81A3DF007B7FA7 /* ExpensesTableViewController.swift */; };
 		029634D11E81D943007B7FA7 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029634CE1E81D943007B7FA7 /* Category+CoreDataProperties.swift */; };
@@ -67,9 +64,6 @@
 /* Begin PBXFileReference section */
 		02766D961E84A4E000FA3C90 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		02766D981E8574E100FA3C90 /* expense.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = expense.jpg; sourceTree = "<group>"; };
-		02906CF71E82E68D004347EE /* expenses.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = expenses.jpg; sourceTree = "<group>"; };
-		029634BD1E7B1D86007B7FA7 /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back.jpg; sourceTree = "<group>"; };
-		029634BF1E7B2010007B7FA7 /* back2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back2.jpg; sourceTree = "<group>"; };
 		029634C11E7B394B007B7FA7 /* Loggedin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loggedin.swift; sourceTree = "<group>"; };
 		029634C31E81A3DF007B7FA7 /* ExpensesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpensesTableViewController.swift; sourceTree = "<group>"; };
 		029634CE1E81D943007B7FA7 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataProperties.swift"; path = "../Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -205,9 +199,6 @@
 				02B4DFEB1E70978100BAFC73 /* Assets.xcassets */,
 				02F66A761EA66470008CF6E9 /* Menu.png */,
 				02766D981E8574E100FA3C90 /* expense.jpg */,
-				02906CF71E82E68D004347EE /* expenses.jpg */,
-				029634BF1E7B2010007B7FA7 /* back2.jpg */,
-				029634BD1E7B1D86007B7FA7 /* back.jpg */,
 				02B4DFED1E70978100BAFC73 /* LaunchScreen.storyboard */,
 				02B4DFF01E70978100BAFC73 /* Info.plist */,
 				02B4DFE81E70978100BAFC73 /* Expenses_Tracker.xcdatamodeld */,
@@ -373,13 +364,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				02F66A771EA66470008CF6E9 /* Menu.png in Resources */,
-				029634BE1E7B1D86007B7FA7 /* back.jpg in Resources */,
 				02B4DFEF1E70978100BAFC73 /* LaunchScreen.storyboard in Resources */,
-				02906CF81E82E68D004347EE /* expenses.jpg in Resources */,
 				02B4DFEC1E70978100BAFC73 /* Assets.xcassets in Resources */,
 				02766D991E8574E100FA3C90 /* expense.jpg in Resources */,
 				02B4DFE71E70978100BAFC73 /* Main.storyboard in Resources */,
-				029634C01E7B2010007B7FA7 /* back2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
