@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let rootViewController = self.window!.rootViewController
             let mainstoryboard: UIStoryboard = UIStoryboard (name: "Main", bundle: nil)
-            let centerViewController = mainstoryboard.instantiateViewController(withIdentifier: "HomeTableViewController")  as! HomeTableViewController
+            let centerViewController = mainstoryboard.instantiateViewController(withIdentifier: "HomeViewController")  as! HomeViewController
             let leftViewController = mainstoryboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
             let leftsideNav = UINavigationController(rootViewController: leftViewController)
             let centerNav = UINavigationController(rootViewController: centerViewController)

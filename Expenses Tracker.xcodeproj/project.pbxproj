@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020F293F1EE326A500E7EDE8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020F293E1EE326A500E7EDE8 /* HomeViewController.swift */; };
 		02766D971E84A4E000FA3C90 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02766D961E84A4E000FA3C90 /* CustomTableViewCell.swift */; };
 		02766D991E8574E100FA3C90 /* expense.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02766D981E8574E100FA3C90 /* expense.jpg */; };
 		029634C21E7B394B007B7FA7 /* Loggedin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029634C11E7B394B007B7FA7 /* Loggedin.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		020F293E1EE326A500E7EDE8 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		02766D961E84A4E000FA3C90 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		02766D981E8574E100FA3C90 /* expense.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = expense.jpg; sourceTree = "<group>"; };
 		029634C11E7B394B007B7FA7 /* Loggedin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loggedin.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				02B4E0251E709F0D00BAFC73 /* MenuTableViewController.swift */,
 				02B4E0271E70A2AA00BAFC73 /* ExpensesViewController.swift */,
 				029634C31E81A3DF007B7FA7 /* ExpensesTableViewController.swift */,
+				020F293E1EE326A500E7EDE8 /* HomeViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				02B4E0701E72654700BAFC73 /* Category+CoreDataClass.swift in Sources */,
 				02B4E02A1E70A61900BAFC73 /* CategoryTableViewController.swift in Sources */,
 				02B4E0321E71060200BAFC73 /* RegisterViewController.swift in Sources */,
+				020F293F1EE326A500E7EDE8 /* HomeViewController.swift in Sources */,
 				02766D971E84A4E000FA3C90 /* CustomTableViewCell.swift in Sources */,
 				029634D11E81D943007B7FA7 /* Category+CoreDataProperties.swift in Sources */,
 				02B4DFE21E70978100BAFC73 /* AppDelegate.swift in Sources */,

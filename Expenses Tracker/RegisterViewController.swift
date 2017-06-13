@@ -40,14 +40,17 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func Alreadyhavaaccount(_ sender: UIButton) {
+        
     }
     
     func Registeruser() {
         // if textfields are not nil
-        if (Firstname.text != "" && Lastname.text != "" && Password.text != "" && ConfirmPassword.text != "" && Email.text != "") {
+        if (Firstname.text != "" && Lastname.text != "" && Password.text != "" && ConfirmPassword.text != "" && Email.text != "")
+        {
             //if password is equal to confirm password
-            if (Password.text == ConfirmPassword.text) {
-                //to sort register databse using lastname
+            if (Password.text == ConfirmPassword.text)
+            {
+                //to sort register table using lastname
                 let sort = NSSortDescriptor(key: "lastname", ascending: true)
                 //To predicte register database using emailId
                 let predicate = NSPredicate(format: "email = %@", Email.text!)

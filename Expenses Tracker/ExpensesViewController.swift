@@ -119,7 +119,7 @@ class ExpensesViewController: UIViewController, UIPickerViewDataSource, UIPicker
             }
            
             
-            self.performSegue(withIdentifier: "saveexpense", sender: self)
+            self.performSegue(withIdentifier: "SaveExpenses", sender: self)
             
         }
             //if any field is empty

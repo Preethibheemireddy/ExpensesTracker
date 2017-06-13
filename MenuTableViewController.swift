@@ -27,7 +27,7 @@ class MenuTableViewController: UITableViewController {
     
     @IBAction func Homebutton(_ sender: Any) {
         
-        let centerview = self.storyboard?.instantiateViewController(withIdentifier: "HomeTableViewController") as! HomeTableViewController
+        let centerview = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         
         let centerNav = UINavigationController(rootViewController: centerview)
         let appdelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate

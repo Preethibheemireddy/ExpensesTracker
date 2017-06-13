@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
                 //To use the current user email locally
                 userloggedin.userEmail = UserDefaults.standard.value(forKey: "userEmail") as? String
             
-                self.performSegue(withIdentifier: "Loggedin", sender: self)
+                self.performSegue(withIdentifier: "UserLogin", sender: self)
                 //To show slide menu
                 slidemenu()
                 
@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
     func slidemenu() {
         let rootViewController = appdelegate.window!.rootViewController
         let mainstoryboard: UIStoryboard = UIStoryboard (name: "Main", bundle: nil)
-        let centerViewController = mainstoryboard.instantiateViewController(withIdentifier: "HomeTableViewController") as! HomeTableViewController
+        let centerViewController = mainstoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         let leftViewController = mainstoryboard.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
         let leftsideNav = UINavigationController(rootViewController: leftViewController)
         let centerNav = UINavigationController(rootViewController: centerViewController)
